@@ -16,6 +16,8 @@
 
   <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -206,7 +208,7 @@
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
-              <a href="#" class="nav-link text-secondary">
+              <a href="index.html" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                   <use xlink:href="#home" /></svg>
                 Home
@@ -244,37 +246,64 @@
         </div>
       </div>
     </div>
-    <div class="px-3 py-2 border-bottom mb-3">
-      <div class="container d-flex flex-wrap justify-content-center">
-        <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-          <input type="search" class="form-control" placeholder="Procurar..." aria-label="Procurar">
-        </form>
-
-        <div class="text-end">
-          <a href="login.html" class="btn btn-outline-secondary me-2">Login</a>
-          <a href="#" class="btn btn-primary">Cadastro</a>
-        </div>
-      </div>
-    </div>
   </header>
 
   <main>
-    <div class="container">
+    <div class="container my-5">
       <div class="row">
-        <div class="col-12 col-md-6 px-4 py-5">
-          <h1 class="fw-bold text-body-emphasis">Lorem ipsum dolor sit amet.</h1>
-          <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s
-            most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.</p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-start">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-          </div>
+        <div class="col-12 col-lg-4 col-md-6 px-4 py-5 mx-auto">
+          <h1 class="text-center mb-3 text-muted">Logo do sistema</h1>
+          <form method="post">
+            <!-- INPUT NOME -->
+            <div class="mb-4">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-person"></i>
+                </span>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInputNome" placeholder="Nome" required>
+                  <label for="floatingInputNome">Nome</label>
+                </div>
+              </div>
+            </div>
+            <!-- FIM INPUT NOME -->
+            <!-- INPUT EMAIL -->
+            <div class="mb-4">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <div class="form-floating">
+                  <input type="email" class="form-control" id="floatingInputEmail" placeholder="E-mail" required>
+                  <label for="floatingInputEmail">E-mail</label>
+                </div>
+              </div>
+            </div>
+            <!-- FIM INPUT EMAIL -->
+            <!-- INPUT PASSWORD -->
+            <div class="mb-4">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-file-lock"></i>
+                </span>
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="floatingInputPassword" placeholder="Senha" required>
+                  <label for="floatingInputPassword">Senha</label>
+                </div>
+              </div>
+            </div>
+            <!-- FIM INPUT PASSWORD -->
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-4">
+              <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Cadastrar</button>
+              <a href="login.html" class="btn btn-outline-secondary btn-lg px-4">Login</a>
+            </div>
+          </form>
         </div>
-        <div class="col-12 col-md-6 px-4 py-5" style="height:500px;">
-          <img src="assets/images/hero1.svg" alt="Hero 1" width="100%" height="100%">
+        <div class="col-12 col-lg-6 px-4 py-5 " style="height:500px;">
+          <img src="assets/images/image_sign_up.svg" alt="Hero 1" width="100%" height="100%">
         </div>
       </div>
+    </div>
     </div>
   </main>
 
