@@ -446,26 +446,59 @@
       </div>
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
-        <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#modalNovoAgendamento">Cadastrar novo</button>
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#modalNovoAgendamento">Cadastrar novo</button>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
 
         <div id='calendar'></div>
         <!-- Modal -->
         <div class="modal fade" id="modalNovoAgendamento" tabindex="-1" aria-labelledby="modalNovoAgendamentoLabel" aria-hidden="true">
           <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalNovoAgendamentoLabel">Novo agendamento</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <form action="" method="post">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="modalNovoAgendamentoLabel">Novo</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="responsavel" class="form-label">Responsável</label>
+                    <input type="text" name="responsavel" id="responsavel" class="form-control" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="tipo_evento" class="form-label">Tipo evento</label>
+                    <select name="tipo_evento" id="tipo_evento" class="form-control">
+                      <option value="agendamento">Agendamento</option>
+                      <option value="feriado">Feriado</option>
+                      <option value="outro">Outro</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" name="all_day" type="checkbox" role="switch" id="flexSwitchCheckAllDay">
+                      <label class="form-check-label" for="flexSwitchCheckAllDay">Dia todo</label>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+                      <label for="data_entrega" class="form-label">Data entrega</label>
+                      <input type="date" name="data_entrega" id="data_entrega" class="form-control" required>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                      <label for="horario_entrega" class="form-label">Horário entrega</label>
+                    <input type="time" name="horario_entrega" id="horario_entrega" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição <span class="text-secondary">(opcional)</span></label>
+                    <textarea name="descricao" id="descricao" rows="4" class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
               </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Cadastrar</button>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </main>
