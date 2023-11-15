@@ -132,10 +132,11 @@
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
-          start: 'dayGridMonth,timeGridWeek,timeGridDay',
+          left: 'prev,next today',
           center: 'title',
-          end: 'prevYear,prev,next,nextYear'
+          right: 'timeGridWeek,timeGridDay,listWeek,dayGridMonth'
         },
+        locale: 'pt-br',
         buttonText: {
           today:    'Hoje',
           month:    'Mês',
@@ -145,21 +146,43 @@
         },
         themeSystem: 'bootstrap5',
         locale: 'pt-br',
-        initialView: 'dayGridMonth',
+        initialView: 'timeGridWeek',
+        slotLabelFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          omitZeroMinute: false,
+          meridiem: 'short'
+        },
+        slotMinTime: '08:00:00',
+        slotMaxTime: '22:50:00',
+        slotDuration: '00:15:00',
+        slotLabelInterval: '00:15',
         eventTimeFormat: {
           hour: 'numeric',
           minute: '2-digit',
           meridiem: false
         },
+        allDayText: 'dia todo',
+        selectable: true,
+        nowIndicator: true,
+        businessHours: {
+          // days of week. an array of zero-based day of week integers (0=Sunday)
+          daysOfWeek: [ 1,2,3,4,5,6 ], // Monday - Thursday
+      
+          startTime: '08:00', // a start time (10am in this example)
+          endTime: '22:50', // an end time (6pm in this example)
+        },
+        selectConstraint: "businessHours",
         events: [
-          { title: 'Reunião com Prof. Smith', start: '2023-11-03T09:00:00', end: '2023-11-03T09:30:00'},
+          { title: 'Prof. Smith', start: '2023-11-03T09:00:00', end: '2023-11-03T09:15:00'},
+          { title: 'Prof. Smith', start: '2023-11-03T09:00:00', end: '2023-11-03T09:15:00'},
           { title: 'Retirada de Equipamento', start: '2023-11-03T14:00:00', end: '2023-11-03T14:30:00' },
           { title: 'Aula de Laboratório', start: '2023-11-04T13:30:00', end: '2023-11-04T16:00:00' },
           { title: 'Entrega de Material Didático', start: '2023-11-05T10:00:00', end: '2023-11-05T11:30:00' },
           { title: 'Reunião com Prof. Johnson', start: '2023-11-05T15:00:00', end: '2023-11-05T16:00:00' },
           { title: 'Retirada de Livros', start: '2023-11-06T14:30:00', end: '2023-11-06T15:30:00' },
           { title: 'Aula de Pesquisa em Campo', start: '2023-11-07T08:30:00', end: '2023-11-07T16:30:00' },
-          { title: 'Entrega de Equipamento', start: '2023-11-08T11:00:00', end: '2023-11-08T11:45:00' },
+          { title: 'Entrega de Equipamento', start: '2023-11-08', end: '2023-11-08', allday: true},
           { title: 'Reunião com Prof. Brown', start: '2023-11-08T16:30:00', end: '2023-11-08T17:30:00' },
           { title: 'Retirada de Materiais de Laboratório', start: '2023-11-09T09:45:00', end: '2023-11-09T10:15:00' },
           { title: 'Entrega de Projetores', start: '2023-11-09T13:00:00', end: '2023-11-09T13:45:00' },
@@ -474,18 +497,18 @@
                   </div>
                   <div class="mb-3">
                     <div class="form-check form-switch">
-                      <input class="form-check-input" name="all_day" type="checkbox" role="switch" id="flexSwitchCheckAllDay">
+                      <input class="form-check-input" name="all_day" type="checkbox" role="switch" id="flexSwitchCheckAllDay" disabled>
                       <label class="form-check-label" for="flexSwitchCheckAllDay">Dia todo</label>
                     </div>
                   </div>
                   <div class="row mb-3">
                     <div class="col-12 col-lg-6 mb-3 mb-lg-0">
-                      <label for="data_entrega" class="form-label">Data entrega</label>
-                      <input type="date" name="data_entrega" id="data_entrega" class="form-control" required>
+                      <label for="data" class="form-label">Data</label>
+                      <input type="date" name="data" id="data" class="form-control" required>
                     </div>
                     <div class="col-12 col-lg-6">
-                      <label for="horario_entrega" class="form-label">Horário entrega</label>
-                    <input type="time" name="horario_entrega" id="horario_entrega" class="form-control" required>
+                      <label for="horario" class="form-label">Horário</label>
+                      <select name="horario" id="horarios" class="form-control"></select>
                     </div>
                   </div>
                   <div class="mb-3">
@@ -509,7 +532,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js"
     integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous">
   </script>
-  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/agendamento.js"></script>
 </body>
 
 </html>
